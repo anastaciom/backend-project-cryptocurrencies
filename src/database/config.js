@@ -1,15 +1,17 @@
 const mongoose = require('mongoose')
 require('dotenv/config')
 
-function verifyUrl() {
-    if (process.env.NODE_ENV === 'TEST') {
-        return process.env.MONGO_URL
-    }
-    return process.env.DB_URL
+function mongoDBConnect() {
+    mongoose.connect(process.env.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }, (err) => {
+        if (err) {
+            return console.error(err)
+        }
+        return console.log('DB RUNNING!!')
+    })
 }
 
-function mongoDBConnect() {
-    mongoose.connect(verifyUrl())
-}
 
 module.exports = mongoDBConnect
