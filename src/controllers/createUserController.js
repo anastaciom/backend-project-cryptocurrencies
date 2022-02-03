@@ -9,7 +9,7 @@ const signUp = async (req, res) => {
         if (user) {
             return res.status(401).json({ error: `User ${email} already exists.` });
         }
-        const newUser = await UserModel.create({ name, email, password })
+        const newUser = await UserModel.create({ name, email,password: await bcrypt.hash(password, 10)})
         return res.status(201).json(newUser)
     } catch (error) {
         return res.status(422).json({ error: `Internal server error.` })

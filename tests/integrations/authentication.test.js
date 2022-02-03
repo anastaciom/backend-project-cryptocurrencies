@@ -33,11 +33,9 @@ describe('SignUp Controller', () => {
         }
         return request(app).post('/signup')
             .send(user)
-            .expect('Content-Type', /json/)
             .expect(201).then((res) => {
                 expect(res.body.name).toEqual(user.name)
                 expect(res.body.email).toEqual(user.email)
-                expect(res.body.password).toEqual(user.password)
                 expect(res.body._id).toBeDefined()
             })
     })
@@ -51,7 +49,6 @@ describe('SignUp Controller', () => {
         }
         return request(app).post('/signup')
             .send(user)
-            .expect('Content-Type', /json/)
             .expect(422).then((res) => {
                 expect(res.body.name).toBeUndefined()
                 expect(res.body.email).toBeUndefined()
@@ -74,9 +71,10 @@ describe('SignUp Controller', () => {
         const response = await request(app).post('/signup').send(user)
         expect(response.status).toBe(401)
     })
-
 })
 
+
+//sign in controller
 
 
 
