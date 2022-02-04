@@ -1,15 +1,16 @@
-const UserModel = require('../models/User');
-const bcrypt = require('bcryptjs');
+const UserModel = require('../../models/User');
+const {passEncryption} = require('../passwordEncryption')
 
 const signUp = async (req, res) => {
     const { name, email, password } = req.body;
-
     try {
         const user = await UserModel.findOne({ email });
         if (user) {
             return res.status(401).json({ error: `User ${email} already exists.` });
         }
-        const newUser = await UserModel.create({ name, email,password: await bcrypt.hash(password, 10)})
+
+        const newUser = await UserModel.create({ name, email, password: await passEncryption(password) })
+        
         return res.status(201).json(newUser)
     } catch (error) {
         return res.status(422).json({ error: `Internal server error.` })
