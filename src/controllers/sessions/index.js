@@ -1,7 +1,6 @@
-const jwt = require('jsonwebtoken');
 
 const sessions = async (req, res) => {
-    res.json({user: 'ok'})
+    res.json({autorization: 'ok', userAuth: req.userId})
 }
 
 
