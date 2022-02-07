@@ -1,6 +1,6 @@
 
 const userFake = require('../userFake');
-const sendMail = require('../emailBody');
+const sendMail = require('../createEmail');
 
 describe('send email', () => {
 

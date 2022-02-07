@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body,
+        html {
+            background-color: #ddf4ff;
+            color: #1f1f1f;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+            border-bottom: 2px solid #1f1f1f;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex: 3;
+        }
+
+        main h1 {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            letter-spacing: 2px;
+            background: #8c00ff;
+            background: -webkit-linear-gradient(to right, #8c00ff, #295eff);
+            background: linear-gradient(to right, #8c00ff, #295eff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 20px;
+        }
+
+        main p {
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #1f1f1f;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 10px;
+            flex: 1;
+            color: #fff;
+        }
+
+        a,
+        a:visited,
+        a:active {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="cid:logo1" alt="logo">
+    </header>
+    <main>
+        <h1>Welcome {{name}} !!</h1>
+        <p>👋 Hi, I'm Anastacio, creator of the site. I'm glad you registered here on CryptoDash 😀.</p>
+
+        <p>Here you will see the information of your favorite cryptocurrencies.🪙</p>
+
+        <p>I always intend to update the site with news, so stay tuned!!!</p>
+
+        <p>Thanks!!</p>
+    </main>
+
+    <footer>
+        <a href="https://github.com/anastaciom"><i class='fab fa-github' style='font-size:35px'></i></a>
+        <a href="https://www.linkedin.com/in/anastacio-menezes-teixeira/"> <i class='fab fa-linkedin'
+                style='font-size:35px'></i></a>
+    </footer>
+</body>
+
+</html>
