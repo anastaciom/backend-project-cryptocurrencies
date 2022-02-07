@@ -11,8 +11,8 @@ const signUp = async (req, res) => {
             return res.status(401).json({ error: `User ${email} already exists.` });
         }
         const newUser = await UserModel.create({ name, email, password: await passEncryption(password) })
-       return res.status(201).json({user:newUser, token: createToken({id:newUser._id})})
-        // return await sendMail('test 2 <usertest2@gmail.com>', newUser.email, newUser.name)
+        await sendEmail(newUser.email, newUser.name)
+        return res.status(201).json({user:newUser, token: createToken({id:newUser._id})})
     } catch (error) {
         return res.status(422).json({ error: `Internal server error.` })
     }
