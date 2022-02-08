@@ -26,11 +26,21 @@ const ReceivedInfo = async (from, to, name) => {
   const email = await transport.sendMail({
     from: from,
     to: to,
-    subject: `👋 Welcome ${name} to cryptoDash 🚀`,
+    subject: `🚀 CryptoDash - ${name}`,
     attachments: [{
       filename: 'logo1.png',
       path: path.resolve(__dirname, "../src/resources/emailTemplate/images/logo1.png"),
       cid: 'logo1'
+    },
+    {
+      filename: 'photo1.png',
+      path: path.resolve(__dirname, "../src/resources/emailTemplate/images/photo1.png"),
+      cid: 'photo1'
+    },
+    {
+      filename: 'photo2.png',
+      path: path.resolve(__dirname, "../src/resources/emailTemplate/images/photo2.png"),
+      cid: 'photo2'
     }],
     context: { name },
     template: 'email'
