@@ -13,7 +13,7 @@ const signIn = async (req, res) => {
 
         if (passwordAndUserMatch) {
            return res.status(200)
-           .json({user:user, token: createToken({id:user._id})})
+           .json({user:user, token: createToken({id:user._id, admin: user.isAdmin})})
         }
 
         return res.status(404).json({ error: 'Email or password incorrect' })

@@ -12,7 +12,7 @@ const signUp = async (req, res) => {
         }
         const newUser = await UserModel.create({ name, email, password: await passEncryption(password) })
         await sendEmail(newUser.email, newUser.name)
-        return res.status(201).json({user:newUser, token: createToken({id:newUser._id})})
+        return res.status(201).json({user:newUser, token: createToken({id:newUser._id, admin: newUser.isAdmin})})
     } catch (error) {
         return res.status(422).json({ error: `Internal server error.` })
     }

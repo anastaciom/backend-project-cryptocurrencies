@@ -26,7 +26,7 @@ const auth = async (req, res, next) => {
         if(err) {
             return res.status(401).json({ error: 'Token invalid' })
         }
-     req.userId = decoded.id
+     req.userId = decoded
      return next()
     })
 

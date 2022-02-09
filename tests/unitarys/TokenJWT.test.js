@@ -5,7 +5,7 @@ describe('JWT', () => {
     it('should create a JWT token for the user', () => {
         const user = userFake
         
-        const tokenJWT = createToken({ id: user.id})
+        const tokenJWT = createToken({ id: user.id, admin: user.isAdmin})
         expect(tokenJWT).toBeDefined()
     })
 })
