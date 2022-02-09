@@ -13,7 +13,14 @@ const User = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-
+    passwordResetToken: {
+        type: String,
+        select: false
+    },
+    passwordResetExpires: {
+        type: Date,
+        select: false
+    },
     email: {
         type: String,
         required: true,

@@ -9,7 +9,7 @@ const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID_GOOGLE, proces
 
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN_GOOGLE })
 
-async function sendEmail(to, name) {
+async function sendEmailForgotPassword(to, name, token) {
 
   try {
     const accessToken = await oAuth2Client.getAccessToken()
@@ -28,34 +28,24 @@ async function sendEmail(to, name) {
     transport.use('compile', hbs({
       viewEngine: {
         extName: ".handlebars",
-        partialsDir: path.resolve(__dirname, "../resources/emailTemplate/"),
+        partialsDir: path.resolve(__dirname, "../resources/emailTemplateForgotPassword/"),
         defaultLayout: false,
       },
-      viewPath: path.resolve(__dirname, "../resources/emailTemplate/"),
+      viewPath: path.resolve(__dirname, "../resources/emailTemplateForgotPassword/"),
       extName: ".handlebars",
     }))
 
     transport.sendMail({
       from: process.env.USER_EMAIL,
       to: to,
-      subject: `🚀 CryptoDash - ${name}`,
+      subject: `🚀 CryptoDash - Password recovery`,
       attachments: [{
         filename: 'logo1.png',
         path: path.resolve(__dirname, "../resources/images/logo1.png"),
         cid: 'logo1'
-      },
-      {
-        filename: 'photo1.png',
-        path: path.resolve(__dirname, "../resources/images/photo1.png"),
-        cid: 'photo1'
-      },
-      {
-        filename: 'photo2.png',
-        path: path.resolve(__dirname, "../resources/images/photo2.png"),
-        cid: 'photo2'
       }],
-      context: { name },
-      template: 'email'
+      context: { name, token },
+      template: 'emailForgetPassword'
     })
 
   } catch (err) {
@@ -65,10 +55,4 @@ async function sendEmail(to, name) {
 
 
 
-
-
-
-
-
-
-module.exports = sendEmail
+module.exports = sendEmailForgotPassword
