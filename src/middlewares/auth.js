@@ -4,7 +4,7 @@ const {secret} = require('../config/authSecret')
 
 const auth = async (req, res, next) => {
 
-    const authHeader = req.headers.authorization;
+    const authHeader = req.headers.Authorization;
 
     if (!authHeader) {
         return res.status(401).json({ error: 'Token was not provided' })
