@@ -4,13 +4,13 @@ const admin = async (req, res) => {
   if (!user) {
     res
       .status(401)
-      .json({ message: `User does not exist or you are not admin` });
+      .json({ error: `User does not exist or you are not admin` });
   } else {
     const isAdmin = user.isAdmin;
     if (isAdmin) {
      return res.status(200).json({ admin: "is true" });
     } 
-    return  res.status(401).json({ message: `User does not exist or you are not admin` });
+    return  res.status(401).json({ error: `User does not exist or you are not admin` });
     
   }
 

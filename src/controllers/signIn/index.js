@@ -7,7 +7,7 @@ const signIn = async (req, res) => {
     try {
         const user = await UserModel.findOne({ email });
         if (!user) {
-            return res.status(404).json({ message: `User does not exist` })
+            return res.status(404).json({ error: `User does not exist` })
         }
         const passwordAndUserMatch = await decryptedPassword(password, user.password)
 

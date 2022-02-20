@@ -19,6 +19,10 @@ const resetPassword = async (req, res) => {
             return res.status(401).json({ error: 'Token expires, generate a new one' });
         }
 
+        if(password.length < 6){
+            return res.status(404).json({ error: 'Password minimum is 6 characters' });
+        }
+        
         user.password = await passEncryption(password)
 
         await user.save()

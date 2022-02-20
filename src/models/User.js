@@ -5,13 +5,15 @@ const User = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minlength: 4
+        minlength: 3,
+        maxlength: Infinity
     },
 
     password: {
         type: String,
         required: true,
-        minlength: 6
+        minlength: 6,
+        maxlength: Infinity
     },
     passwordResetToken: {
         type: String,
@@ -27,7 +29,8 @@ const User = new mongoose.Schema({
         index: {
             unique: true
         },
-        minlength: 4
+        minlength: 4,
+        maxlength: Infinity
     },
     isAdmin: {
         type: Boolean,

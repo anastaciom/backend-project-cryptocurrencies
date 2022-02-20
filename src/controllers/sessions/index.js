@@ -5,7 +5,7 @@ const sessions = async (req, res) => {
     try {
         const user = await UserModel.findById(req.userId.id);
         if (!user) {
-        return res.status(404).json({ message: `User does not exist or is not authenticated` })  
+        return res.status(404).json({ error: `User does not exist or is not authenticated` })  
         } 
         const { data } = await api.get('markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h')
 
