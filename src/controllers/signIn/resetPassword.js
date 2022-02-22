@@ -26,7 +26,7 @@ const resetPassword = async (req, res) => {
         user.password = await passEncryption(password)
 
         await user.save()
-        res.status(200).json({user:user})
+        res.status(200).json({status: 'Password reset successful'})
 
       } catch (error) {
           res.status(400).json({error: 'Cannot reset password, try again.'})
