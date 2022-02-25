@@ -12,18 +12,11 @@ const sessions = async (req, res) => {
     const { data } = await api.get(
       "markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h"
     );
-
-    const news = await api.get(
-      `https://newsapi.org/v2/everything?q=cryptocurrency&from=2022-01-24&sortBy=publishedAt&apiKey=${process.env.API_URL_NEWS}`
-    );
-
-    return res
-      .status(200)
-      .json({
-        news: news.data,
-        data: data,
-        user: { name: user.name, email: user.email },
-      });
+    
+    return res.status(200).json({
+      data: data,
+      user: { name: user.name, email: user.email },
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "internal error" });
