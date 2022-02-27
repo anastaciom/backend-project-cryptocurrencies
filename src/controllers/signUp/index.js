@@ -20,7 +20,7 @@ const signUp = async (req, res) => {
 
     const user = await UserModel.findOne({ email });
     if (user) {
-      return res.status(401).json({ error: `User ${email} already exists.` });
+      return res.status(401).json({ error:'User already exists.'});
     }
 
     const newUser = await UserModel.create({
