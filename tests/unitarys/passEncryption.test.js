@@ -4,8 +4,8 @@ describe('password encryption', () => {
    
     it('should encrypt user password', async() => {
         const user ={
-            name: 'test6',
-            email: 'test6@test6.com',
+            name: 'test543',
+            email: 'test543@test6.com',
             password: '12345678'
         }
         const createEncryptedPassword = await passEncryption(user.password)
@@ -16,8 +16,8 @@ describe('password encryption', () => {
         
         const userDB = {
             id: '1231234',
-            name: 'test7',
-            email: 'test7@test7.com',
+            name: 'test7asd',
+            email: 'test7sasd@test7ds.com',
             password: await passEncryption('123456890')
         }
 
@@ -33,9 +33,9 @@ describe('password encryption', () => {
     it('should compare password and return false', async()=>{
         
         const userDB = {
-            id: '1231234',
-            name: 'test7',
-            email: 'test7@test7.com',
+            id: '12312341dasdd',
+            name: 'test7asdasd',
+            email: 'test7asdas@test7.com',
             password: await passEncryption('123456890')
         }
 

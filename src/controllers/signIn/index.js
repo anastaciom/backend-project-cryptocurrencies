@@ -19,7 +19,6 @@ const signIn = async (req, res) => {
         return res.status(404).json({ error: 'Email or password incorrect' })
         
     } catch (err) {
-        console.log(err)
         return res.status(500).json({ error: `Internal server error.` })
     }
 

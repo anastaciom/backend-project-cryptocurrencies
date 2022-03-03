@@ -1,4 +1,3 @@
-const userFake = require('../userFake');
 const sendEMailForgotPassword = require('../createEmailForgotPassword');
 const mongoose = require('mongoose');
 const request = require('supertest');
@@ -29,7 +28,11 @@ describe('Send email - Forget Password', () => {
 
     it("should send the user's valid email and the email with the token will be sent. Should return status 200", async () => {
 
-        const user = await UserModel.create(userFake)
+        const user = await UserModel.create({
+            name: 'Usertest6',
+            email: 'usertest6@gmail.com',
+            password: 'asddawwwdasd'
+        })
 
         const userForgotPassword = {
             email: user.email
@@ -56,7 +59,11 @@ describe('Send email - Forget Password', () => {
 
     it("should send the user's invalid email and the email with the token will not be sent. Should return status 400", async ()=>{
     
-        const user = await UserModel.create(userFake)
+        await UserModel.create({
+            name: 'Usertest6',
+            email: 'usertest6@gmail.com',
+            password: 'asddawwwdasd'
+        })
 
         const userForgotPassword = {
             email: 'testemailinvalid@gmail.com'

@@ -2,7 +2,6 @@ const request = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../../src/app');
 const UserModel = require('../../src/models/User');
-const userFake = require('../userFake');
 const {decryptedPassword, passEncryption} = require('../../src/controllers/passwordEncryption')
 
 describe('SignIn Controller', () => {
@@ -47,7 +46,11 @@ describe('SignIn Controller', () => {
 
     it('should sign in invalid password and return status 404', async () => {
 
-        const user = await UserModel.create(userFake)
+        const user = await UserModel.create({
+            name: 'Test2020',
+            email: 'Test2020@gmail.com',
+            password: '12345678'
+        })
 
         const userLogin = {
             email: user.email,
@@ -63,10 +66,14 @@ describe('SignIn Controller', () => {
 
     it('should sign in invalid email and return status 404', async () => {
 
-        const user = await UserModel.create(userFake)
+        const user = await UserModel.create({
+            name: 'Test12334',
+            email: 'test12365@gmail.com',
+            password: '12345678'
+        })
 
         const userLogin = {
-            email: 'test2@test2.com',
+            email: 'test40@test2.com',
             password: user.password
         }
        
