@@ -55,6 +55,7 @@
 
     npm start or npm run dev (nodemon) 
 
+### ⚠️⚠️ Don't forget to add your values in the environment variables. The variable names are in the ".env.example" file. ⚠️⚠️
 ### will run at http://localhost:3001/
 ---
 
