@@ -24,7 +24,7 @@ const signInAdmin = async (req, res) => {
 
     return res.status(404).json({ error: "Email or password incorrect" });
   } catch (err) {
-    return res.status(500).json({ error: `Internal server error.` });
+    return res.status(500).json({ error: `Invalid credentials.` });
   }
 };
 
