@@ -1,5 +1,5 @@
-const app = require('./src/app')
-const mongoDBConnect = require('./src/database/config')
+const app = require('./app')
+const mongoDBConnect = require('./database/config')
 mongoDBConnect()
 
 app.listen(process.env.PORT || 3001, () => {
