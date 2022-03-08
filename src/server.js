@@ -1,7 +1,8 @@
 const app = require('./app')
 const mongoDBConnect = require('./database/config')
 mongoDBConnect()
+const PORT = process.env.PORT || 8080
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log('Server running')
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`)
 })

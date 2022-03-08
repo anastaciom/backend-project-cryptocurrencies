@@ -2,10 +2,10 @@
   "name": "backend-project-cryptocurrencies",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js",
+    "start":"node src/server.js",
+    "dev":"nodemon src/server.js",
     "test": "jest"
   },
   "keywords": [],
