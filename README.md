@@ -1,15 +1,44 @@
 # Backend built in nodejs, through TDD tests.
 
-### Routes:
+## Routes:
 
-- #### Jwt authentication routes (SignIn, SignUp with email sending)
-- #### Admin user route
-- #### "Forgot password" route (Sending recovery token by user's email.) and "reset password" route
-- #### Dashboard route, where Coingecko cryptocurrency API is used
+### Jwt authentication routes (SignIn, SignUp with email sending)
+
+ <br>
+
+- **[POST] /signup** *(name, valid email and password)*
+- **[POST] /signin** *(email and password)*
 
 ---
 
-### Data base:
+### Admin user route
+
+ <br>
+
+- **[POST] /admin** *(email and password)*
+
+- **[GET] /admin/users** *⚠️Private route only administrator users access and need the jwt token⚠️*
+
+---
+
+### "Forgot password" route (Sending recovery token by user's email.) and "reset password" route
+
+<br>
+
+- **[POST] /signin/forgot_password** *(email)*
+
+- **[POST] /signin/reset_password** *(token,email and new password)*
+
+---
+
+ ### Dashboard route, where Coingecko cryptocurrency API is used
+
+- **[GET] /dashboard**
+  *⚠️Private route, jwt token required⚠️*
+
+---
+
+## Data base:
 
 - **MongoDB**
 
@@ -27,13 +56,16 @@
 - **mongoose**
 - **nodemailer**
 - **nodemailer-express-handlebars**
+
 ---
+
 ## DevDependencies:
 
 - **@shelf/jest-mongodb**
 - **jest**
 - **nodemon**
 - **supertest**
+
 ---
 
 ## Git Clone:
@@ -50,18 +82,18 @@
 
     npm install
 
-
 ### Now, to run the project:
 
-    npm start or npm run dev (nodemon) 
+    npm start or npm run dev (nodemon)
 
 ### ⚠️⚠️ Don't forget to add your values in the environment variables. The variable names are in the ".env.example" file. ⚠️⚠️
+
 ### will run at http://localhost:3001/
+
 ---
 
 ## Test Report
 
 ![](./readmeAssets/imgTests.png)
-
 
 ---
