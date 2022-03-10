@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const {signup} = require('../controllers/signup/index.js')
+const router = require("express").Router();
+const { signUp } = require("../controllers/signUp");
 
-router.post('/', signup)
+router.post("/", signUp);
 
-module.exports = router
+module.exports = router;

@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const { sessions } = require('../controllers/sessions')
-const {auth} = require('../middlewares/auth')
+const router = require("express").Router();
+const { sessions } = require("../controllers/sessions");
+const { auth } = require("../middlewares/auth");
 
-router.use(auth)
-router.get('/', sessions)
+router.use(auth);
+router.get("/", sessions);
 
-module.exports = router
+module.exports = router;

@@ -1,9 +1,9 @@
-const UserModel = require("../../models/User.js");
-const { passEncryption } = require("../passwordEncryption.js");
-const { createToken } = require("../createToken.js");
-const sendEmail = require("../../config/mailer.js");
+const UserModel = require("../../models/User");
+const { passEncryption } = require("../passwordEncryption");
+const { createToken } = require("../createToken");
+const sendEmail = require("../../config/mailer");
 
-const signup = async (req, res) => {
+const signUp = async (req, res) => {
   const { name, email, password } = req.body;
   try {
     if (name.length < 3) {
@@ -20,7 +20,7 @@ const signup = async (req, res) => {
 
     const user = await UserModel.findOne({ email });
     if (user) {
-      return res.status(401).json({ error:'User already exists.'});
+      return res.status(401).json({ error: "User already exists." });
     }
 
     const newUser = await UserModel.create({
@@ -38,4 +38,4 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup };
+module.exports = { signUp };

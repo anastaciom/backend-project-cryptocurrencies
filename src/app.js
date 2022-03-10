@@ -1,17 +1,18 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const signUpRoutes = require('./routes/signup');
-const signInRoutes = require('./routes/signin');
-const dashboardRoutes = require('./routes/dashboard');
-const adminRoute = require('./routes/admin');
-const cors = require('cors');
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+const signUpRoutes = require("./routes/signUp");
+const signInRoutes = require("./routes/signIn");
+const dashboardRoutes = require("./routes/dashboard");
+const adminRoute = require("./routes/admin");
+const cors = require("cors");
 
-app.use('/signup', signUpRoutes)
-app.use('/signin', signInRoutes)
-app.use('/dashboard', dashboardRoutes)
-app.use('/admin', adminRoute)
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-module.exports = app
+app.use("/signup", signUpRoutes);
+app.use("/signin", signInRoutes);
+app.use("/dashboard", dashboardRoutes);
+app.use("/admin", adminRoute);
+
+module.exports = app;
