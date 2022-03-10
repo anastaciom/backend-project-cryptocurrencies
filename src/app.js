@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const signUpRoutes = require('./routes/signUp');
-const signInRoutes = require('./routes/signIn');
-const dashboardRoutes = require('./routes/dashboard');
-const adminRoute = require('./routes/admin');
+const signUpRoutes = require('../src/routes/signUp');
+const signInRoutes = require('../src/routes/signIn');
+const dashboardRoutes = require('../src/routes/dashboard');
+const adminRoute = require('../src/routes/admin');
 const cors = require('cors');
 app.use(cors())
 app.use(express.json())
