@@ -2,7 +2,7 @@ const UserModel = require('../../models/User');
 const {decryptedPassword} = require('../passwordEncryption')
 const {createToken} = require('../createToken')
 
-const signIn = async (req, res) => {
+const signin = async (req, res) => {
     const {email, password } = req.body;
     try {
         const user = await UserModel.findOne({ email });
@@ -25,4 +25,4 @@ const signIn = async (req, res) => {
 }
 
 
-module.exports = { signIn }
+module.exports = { signin }

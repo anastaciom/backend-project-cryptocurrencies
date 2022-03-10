@@ -3,7 +3,7 @@ const { passEncryption } = require("../passwordEncryption");
 const { createToken } = require("../createToken");
 const sendEmail = require("../../config/mailer");
 
-const signUp = async (req, res) => {
+const signup = async (req, res) => {
   const { name, email, password } = req.body;
   try {
     if (name.length < 3) {
@@ -38,4 +38,4 @@ const signUp = async (req, res) => {
   }
 };
 
-module.exports = { signUp };
+module.exports = { signup };
