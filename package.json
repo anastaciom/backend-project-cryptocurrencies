@@ -1,15 +1,15 @@
 {
   "name": "backend-project-cryptocurrencies",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "backend-project-cryptocurrencies",
+  "main": "./src/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anastacio Menezes - github: anastaciom",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.25.0",
@@ -21,7 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.0",
     "nodemailer": "^6.7.2",
-    "nodemailer-express-handlebars": "^5.0.0"
+    "nodemailer-express-handlebars": "^5.0.0",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.2.0",

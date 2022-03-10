@@ -1,0 +1,148 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CryptoDash",
+    "description": "Cryptocurrency information dashboard",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/signup": {
+      "post": {
+        "summary": "create user",
+        "description": "User sign up route, with email sending (send valid email)",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name ": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/signin": {
+      "post": {
+        "summary": "Login",
+        "description": "User sign In route",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signin/forgot_password": {
+      "post": {
+        "summary": "Forgot password",
+        "description": "Forgot password (Sending recovery token by user's email)",
+        "tags": ["Forgot password and reset password"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signin/reset_password": {
+      "post": {
+        "summary": "Reset password",
+        "description": "Reset password (The token' field is to put the token that was sent by email and the 'password' field is where the user will put the new password)",
+        "tags": ["Forgot password and reset password"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "token": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/dashboard": {
+      "get": {
+        "summary": "Dashboard - ⚠️Private route, jwt token required⚠️",
+        "description": "Dashboard with information about the logged in user and cryptocurrencies.",
+        "tags": ["Dashboard"]
+      }
+    },
+
+    "/admin": {
+      "post": {
+        "summary": "Admin",
+        "description": "Sign in admin route",
+        "tags": ["Administrator"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "summary": "Admin dashboard (⚠️Private route only administrator users access and need the jwt token⚠️)",
+        "description": "Admin dashboard",
+        "tags": ["Administrator"]
+      }
+    }
+  }
+}
