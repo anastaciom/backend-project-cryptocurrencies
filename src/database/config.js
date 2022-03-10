@@ -9,7 +9,6 @@ function mongoDBConnect() {
         if (err) {
             return console.error(err)
         }
-        return console.log('DB RUNNING!!')
     })
 }
 
