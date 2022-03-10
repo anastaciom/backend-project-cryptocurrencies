@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { signIn } = require('../controllers/signIn')
-const {forgotPassword} = require('../controllers/signIn/forgotPassword')
-const {resetPassword} = require('../controllers/signIn/resetPassword')
+const { signIn } = require('../controllers/signin')
+const {forgotPassword} = require('../controllers/signin/forgotPassword')
+const {resetPassword} = require('../controllers/signin/resetPassword')
 
 router.post('/', signIn)
 router.post('/forgot_password', forgotPassword)
