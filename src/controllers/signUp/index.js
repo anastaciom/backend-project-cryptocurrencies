@@ -1,7 +1,7 @@
-const UserModel = require("../../models/User");
-const { passEncryption } = require("../passwordEncryption");
-const { createToken } = require("../createToken");
-const sendEmail = require("../../config/mailer");
+const UserModel = require("../../models/User.js");
+const { passEncryption } = require("../passwordEncryption.js");
+const { createToken } = require("../createToken.js");
+const sendEmail = require("../../config/mailer.js");
 
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
