@@ -1,42 +1,6 @@
 # Backend built in nodejs, through TDD tests.
 
-## Routes:
-
-### Jwt authentication routes (SignIn, SignUp with email sending)
-
- <br>
-
-- **[POST] /signup** *(name, valid email and password)*
-- **[POST] /signin** *(email and password)*
-
----
-
-### Admin user route
-
- <br>
-
-- **[POST] /admin** *(email and password)*
-
-- **[GET] /admin/users** *⚠️Private route only administrator users access and need the jwt token⚠️*
-
----
-
-### "Forgot password" route (Sending recovery token by user's email.) and "reset password" route
-
-<br>
-
-- **[POST] /signin/forgot_password** *(email)*
-
-- **[POST] /signin/reset_password** *(token,email and new password)*
-
----
-
- ### Dashboard route, where Coingecko cryptocurrency API is used
-
-- **[GET] /dashboard**
-  *⚠️Private route, jwt token required⚠️*
-
----
+## [API DOCS 📄](https://project-cryptodash.herokuapp.com/api-docs/)
 
 ## Data base:
 
@@ -67,6 +31,8 @@
 - **supertest**
 
 ---
+
+## Deploy link: https://project-cryptodash.herokuapp.com/
 
 ## Git Clone:
 
